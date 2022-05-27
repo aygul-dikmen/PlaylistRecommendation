@@ -1,0 +1,7 @@
+<Router>
+            <Routes>
+                <Route exact path="/" element={<h1>anasayfa</h1>} />
+                <Route  path="/my-playlists" element={<ShowPlaylistPage />} />
+                <Route  path="/recommendation" element={<ShowRecommendationPage />} />
+            </Routes>
+        </Router>   
