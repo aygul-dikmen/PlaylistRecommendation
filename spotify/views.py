@@ -71,22 +71,22 @@ class GetPlaylist(APIView):
 
         items = response["items"]
         total = response["total"]
-        names = []
-        cover = []
-        playlist_id = []
+        
+        playlist = []
 
-        for i in range(2):
-            names.append(response["items"][i]["name"])
-            cover.append(response["items"][i]["images"][0]["url"])
-            playlist_id.append(response["items"][i]["id"])
+        for i in range(total):
+            playlist.append(
+            {'name': response['items'][i]['name'],
+            'cover': response['items'][i]['images'][0]['url'],
+            'id': response['items'][i]['id']}
+            )
+           
 
-        playlists = {
+        '''playlists = [{
             'items': items,
             'total': total,
             'names': names,
             'cover': cover,
-            'id': playlist_id
+            'id': playlist_id}]'''
 
-        }
-
-        return Response(playlists, status=status.HTTP_200_OK)
+        return Response(playlist, status=status.HTTP_200_OK)
