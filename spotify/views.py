@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import os
 from rest_framework.views import APIView
-from requests import Request, Response, post
+from requests import Request, Response, post, session
 from rest_framework import status
 from rest_framework.response import Response
 from  .util import *
@@ -69,7 +69,7 @@ class GetPlaylist(APIView):
         session_id = self.request.session.session_key
         response = get_playlist(session_id)
 
-        items = response["items"]
+        #items = response["items"]
         total = response["total"]
         
         playlist = []
@@ -81,6 +81,7 @@ class GetPlaylist(APIView):
             'id': response['items'][i]['id']}
             )
            
+        request.session["playlist_id"] = playlist[0]["id"]
 
         '''playlists = [{
             'items': items,
@@ -90,3 +91,18 @@ class GetPlaylist(APIView):
             'id': playlist_id}]'''
 
         return Response(playlist, status=status.HTTP_200_OK)
+
+class GetPlaylistSongs(APIView):
+    def get(self, request,format=None):
+        session_id = self.request.session.session_key
+        playlist_id = request.session.get("playlist_id")
+
+        #playlist_id = request.GET["id"]
+
+        if playlist_id is None:
+            playlist_id = "dsfaf"
+
+        #request.session["playlist_id"] = playlist_id
+        response = get_playlist_songs(session_id,playlist_id)
+
+        return Response(response, status=status.HTTP_200_OK)
