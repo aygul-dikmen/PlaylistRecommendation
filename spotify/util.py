@@ -90,3 +90,11 @@ def get_playlist(session_id):
     #print(playlists["total"])
 
     return playlists
+
+def get_playlist_songs(session_id, playlist_id):
+    tokens = get_user_tokens(session_id)
+    spotify = spotipy.Spotify(auth=tokens.access_token)
+
+    songs = spotify.playlist_tracks(playlist_id=playlist_id)
+
+    return songs

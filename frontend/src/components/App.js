@@ -3,6 +3,7 @@ import {render} from "react-dom";
 import HomePage from "./HomePage";
 import ShowPlaylistPage from "./ShowPlaylistPage";
 import ShowRecommendationPage from "./ShowRecommendationPage";
+import ShowSongsPage from "./ShowSongsPage";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,6 +23,7 @@ export default class App extends Component{
             <Route exact path='/' element={<HomePage />} />
             <Route path='/my-playlists' element={<ShowPlaylistPage />} />
             <Route path='/recommendation' element={<ShowRecommendationPage />} />
+            <Route path='my-playlists/songs' element={<ShowSongsPage />} />
           </Routes>
           </Router>
       );

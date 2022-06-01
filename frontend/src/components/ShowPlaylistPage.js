@@ -30,6 +30,7 @@ export default class ShowPlaylistPage extends Component {
   render() {
     
     return this.state.playlists.map((item) => (
+      <a href="http://127.0.0.1:8000/my-playlists/songs">
       <Card>
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} align="center">
@@ -48,6 +49,7 @@ export default class ShowPlaylistPage extends Component {
           </Grid>
         </Grid>
       </Card>
+      </a>
     ));
   }
 }

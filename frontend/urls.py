@@ -8,6 +8,7 @@ urlpatterns = [
     path('', index, name=''),
     path('my-playlists', index),
     path('recommendation', index),
+    path('my-playlists/songs', index)
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
