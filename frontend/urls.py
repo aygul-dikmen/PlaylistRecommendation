@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', index, name=''),
     path('my-playlists', index, name='my-playlists'),
-    path('recommendation', index),
-    path('my-playlists/songs', index)
+    path('recommendation', index, name='recommendation'),
+    path('my-playlists/songs', index, name='songs')
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

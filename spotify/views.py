@@ -73,15 +73,36 @@ class GetPlaylist(APIView):
         total = response["total"]
         
         playlist = []
+        pl_songs = []
 
         for i in range(total):
+
+            playlist_id = response['items'][i]['id']
+            songs_list = get_playlist_songs(session_id,playlist_id)
+            total_songs = songs_list['total']
+            for j in range(total_songs):
+                pl_songs.append(
+                    {
+                        'name': songs_list['items'][j]['track']['name'],
+                        'artist': songs_list['items'][j]['track']['album']['artists'][0]['name'],
+                        'img': songs_list['items'][j]['track']['album']['images'][0]['url']
+                    }
+                )
+            
             playlist.append(
             {'name': response['items'][i]['name'],
             'cover': response['items'][i]['images'][0]['url'],
-            'id': response['items'][i]['id']}
+            'id': response['items'][i]['id'],
+            'songs': pl_songs
+            }
             )
+
+            pl_songs = []
+
+            
+            
            
-        request.session["playlist_id"] = playlist[0]["id"]
+        #request.session["playlist_id"] = playlist[0]["id"]
 
         '''playlists = [{
             'items': items,
