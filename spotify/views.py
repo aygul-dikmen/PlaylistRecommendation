@@ -45,7 +45,7 @@ def spotify_callback(request, format=None):
 
     update_or_create_user_tokens(request.session.session_key, access_token, token_type, refresh_token, expires_in)
 
-    return redirect('frontend:')
+    return redirect('frontend:my-playlists')
 
 
 class IsAuthenticated(APIView):

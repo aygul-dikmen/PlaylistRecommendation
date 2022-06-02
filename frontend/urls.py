@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name=''),
-    path('my-playlists', index),
+    path('my-playlists', index, name='my-playlists'),
     path('recommendation', index),
     path('my-playlists/songs', index)
     
