@@ -1,3 +1,4 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import os
 from rest_framework.views import APIView
@@ -5,6 +6,8 @@ from requests import Request, Response, post, session
 from rest_framework import status
 from rest_framework.response import Response
 from  .util import *
+from django.views import View
+from django.urls import reverse
 # Create your views here.
 
 class AuthURL(APIView):
@@ -99,9 +102,6 @@ class GetPlaylist(APIView):
 
             pl_songs = []
 
-            
-            
-           
         #request.session["playlist_id"] = playlist[0]["id"]
 
         '''playlists = [{
@@ -111,14 +111,18 @@ class GetPlaylist(APIView):
             'cover': cover,
             'id': playlist_id}]'''
 
+        #print(playlist[0]['songs'])
         return Response(playlist, status=status.HTTP_200_OK)
+
+#instead of getting playlists' songs in another view, 
+#now we are getting these datas in the same view with get_playlists view.
 
 class GetPlaylistSongs(APIView):
     def get(self, request,format=None):
         session_id = self.request.session.session_key
-        playlist_id = request.session.get("playlist_id")
+        #playlist_id = request.session.get("playlist_id")
 
-        #playlist_id = request.GET["id"]
+        playlist_id = "4U20aqvtwc1jYA847xQCMA"
 
         if playlist_id is None:
             playlist_id = "dsfaf"
@@ -127,3 +131,26 @@ class GetPlaylistSongs(APIView):
         response = get_playlist_songs(session_id,playlist_id)
 
         return Response(response, status=status.HTTP_200_OK)
+
+
+class MakePlaylistRecommendation(APIView):
+    def get(self, request, id):
+        session_id = self.request.session.session_key
+        playlist = get_playlist_songs(session_id, id)
+
+        total = playlist["total"]
+
+        pl_songs = []
+
+        for i in range(total):
+            pl_songs.append(
+                    {
+                        'name': playlist['items'][i]['track']['name'],
+                        'artist': playlist['items'][i]['track']['album']['artists'][0]['name'],
+                        'img': playlist['items'][i]['track']['album']['images'][0]['url']
+                    })
+        
+        
+        #print(pl_songs)
+        return Response(pl_songs, status=status.HTTP_200_OK)
+

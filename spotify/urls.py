@@ -9,5 +9,6 @@ urlpatterns = [
     path('playlists', GetUserPlaylists.as_view()),
     path('pl', GetPlaylist.as_view(), name='playlists'),
     path('songs', GetPlaylistSongs.as_view()),
+    path('get-recommendation/<str:id>', MakePlaylistRecommendation.as_view()),
 ]
 
