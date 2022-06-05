@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Route, Link, Routes, useParams} from 'react-router-dom';
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
- class ShowRecommendationPage extends Component {
+class ShowRecommendationPage extends Component {
   constructor(props) {
     super(props);
     

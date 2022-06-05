@@ -10,6 +10,7 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import AboutUsPage from "./AboutUsPage";
 
 export default class App extends Component{
     constructor(props){
@@ -22,6 +23,7 @@ export default class App extends Component{
             <Route exact path='/' element={<HomePage />} />
             <Route path='/my-playlists' element={<ShowPlaylistPage />} />
             <Route path='/recommendation/:id' element={<ShowRecommendationPage />} />
+            <Route path='/about-us' element={<AboutUsPage />} />
           </Routes>
           </Router>
       );
