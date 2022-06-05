@@ -83,7 +83,7 @@ all_playlist_list = ["https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF?s
 all_playlistDF = pd.DataFrame()
 
 #for playlist in range(len(all_playlist_list)):
-for playlist in range(3):
+for playlist in range(len(all_playlist_list)):
     temp_playlist = pd.DataFrame()
     playlist_link = all_playlist_list[playlist]
     playlist_URI = playlist_link.split("/")[-1].split("?")[0]
@@ -258,15 +258,15 @@ def generate_playlist_recos(df, features, nonplaylist_features):
     nonplaylist_features (pandas dataframe): feature set of songs that are not in the selected playlist
         
     Output: 
-    non_playlist_df_top_40: Top 40 recommendations for that playlist
+    non_playlist_df_top_20: Top 20 recommendations for that playlist
     '''
     
     non_playlist_df = df[df['track_id'].isin(nonplaylist_features['track_id'].values)]
     # Find cosine similarity between the playlist and the complete song set
     non_playlist_df['sim'] = cosine_similarity(nonplaylist_features.drop('track_id', axis = 1).values, features.values.reshape(1, -1))[:,0]
-    non_playlist_df_top_40 = non_playlist_df.sort_values('sim',ascending = False).head(40)
+    non_playlist_df_top_20 = non_playlist_df.sort_values('sim',ascending = False).head(20)
     
-    return non_playlist_df_top_40
+    return non_playlist_df_top_20
 
 # One-hot encoding for the subjectivity 
 subject_ohe = ohe_prep(sentiment, 'subjectivity','subject')
