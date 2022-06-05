@@ -46,7 +46,7 @@ export default class ShowPlaylistPage extends Component {
                   <Grid item xs={6} >
                     <br/>
                     <h1>{item.name}</h1>
-                    <h1>{item.id}</h1>
+                    <h1>{item.owner}</h1>
                   </Grid>
 
                   <Grid item xs={2} >

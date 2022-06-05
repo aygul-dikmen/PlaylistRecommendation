@@ -98,3 +98,11 @@ def get_playlist_songs(session_id, playlist_id):
     songs = spotify.playlist_tracks(playlist_id=playlist_id)
 
     return songs
+
+def get_current_user_id(session_id):
+    tokens = get_user_tokens(session_id)
+    spotify = spotipy.Spotify(auth=tokens.access_token)
+
+    user_id = spotify.current_user()
+
+    return user_id['id']

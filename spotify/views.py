@@ -63,8 +63,6 @@ class GetUserPlaylists(APIView):
         session_id = self.request.session.session_key
         endpoint = "me/playlists"
         response = execute_spotify_api_request(session_id, endpoint)
-        #print(response)
-
         return Response(response , status=status.HTTP_200_OK)
 
 class GetPlaylist(APIView):
@@ -72,7 +70,6 @@ class GetPlaylist(APIView):
         session_id = self.request.session.session_key
         response = get_playlist(session_id)
 
-        #items = response["items"]
         total = response["total"]
         
         playlist = []
@@ -96,13 +93,12 @@ class GetPlaylist(APIView):
             {'name': response['items'][i]['name'],
             'cover': response['items'][i]['images'][0]['url'],
             'id': response['items'][i]['id'],
-            'songs': pl_songs
+            'owner': response['items'][i]['owner']['display_name'],
+            'songs': pl_songs,
             }
             )
 
             pl_songs = []
-
-        #request.session["playlist_id"] = playlist[0]["id"]
 
         '''playlists = [{
             'items': items,
@@ -120,14 +116,11 @@ class GetPlaylist(APIView):
 class GetPlaylistSongs(APIView):
     def get(self, request,format=None):
         session_id = self.request.session.session_key
-        #playlist_id = request.session.get("playlist_id")
-
         playlist_id = "4U20aqvtwc1jYA847xQCMA"
 
         if playlist_id is None:
             playlist_id = "dsfaf"
 
-        #request.session["playlist_id"] = playlist_id
         response = get_playlist_songs(session_id,playlist_id)
 
         return Response(response, status=status.HTTP_200_OK)
@@ -150,7 +143,5 @@ class MakePlaylistRecommendation(APIView):
                         'img': playlist['items'][i]['track']['album']['images'][0]['url']
                     })
         
-        
-        #print(pl_songs)
         return Response(pl_songs, status=status.HTTP_200_OK)
 
