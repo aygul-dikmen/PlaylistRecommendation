@@ -106,3 +106,5 @@ def get_current_user_id(session_id):
     user_id = spotify.current_user()
 
     return user_id['id']
+
+
