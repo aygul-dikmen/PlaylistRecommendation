@@ -79,8 +79,8 @@ class GetPlaylist(APIView):
 
             playlist_id = response['items'][i]['id']
             songs_list = get_playlist_songs(session_id,playlist_id)
-            total_songs = songs_list['total']
-            for j in range(total_songs):
+            #total_songs = songs_list['total']
+            for j in range(len(songs_list['items'])):
                 pl_songs.append(
                     {
                         'name': songs_list['items'][j]['track']['name'],

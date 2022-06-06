@@ -40,8 +40,8 @@ class ShowRecommendationPage extends Component {
             return (
               <Grid item xs={12} container style={{backgroundColor:"#AEF0D7"}} justifyContent="center">
                 <Grid item xs={12} container >
-                <Grid item xs={4}>
-                  <img src={item.img} height="200"/>
+                  <Grid item xs={4}>
+                    <img src={item.img} height="200"/>
                   </Grid>
 
                   <Grid item xs={6} >
@@ -49,11 +49,20 @@ class ShowRecommendationPage extends Component {
                     <h1>{item.name}</h1>
                     <h1>{item.artist}</h1>
                   </Grid>
+
         
                 </Grid>
               </Grid>
             );
           })}
+
+          <Grid item xs={12} alignItems="center" justifyContent="center">
+              <div class="ui buttons" style={{'margin':'auto'}}>
+                  <button class="ui red button">Not my cup of tea</button>
+                  <div class="or"></div>
+                    <button class="ui green button">Yes, keep it</button>
+                </div>
+          </Grid>
         </Grid>
       </Card>
     );

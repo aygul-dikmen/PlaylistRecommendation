@@ -49,8 +49,8 @@ export default class ShowPlaylistPage extends Component {
                     <h1>{item.owner}</h1>
                   </Grid>
 
-                  <Grid item xs={2} >
-                    <a href={"/recommendation/" + item.id}>a</a>
+                  <Grid item xs={2} style={{'margin':'auto'}}>
+                    <a href={"/recommendation/" + item.id}><button class="ui orange button">Show my recommendation</button></a>
                   </Grid>
         
                 </Grid>
