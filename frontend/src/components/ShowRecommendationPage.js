@@ -41,7 +41,7 @@ class ShowRecommendationPage extends Component {
               <Grid item xs={12} container style={{backgroundColor:"#AEF0D7"}} justifyContent="center">
                 <Grid item xs={12} container >
                 <Grid item xs={4}>
-                    <img src={item.img} height="200"/>
+                  <img src={item.img} height="200"/>
                   </Grid>
 
                   <Grid item xs={6} >

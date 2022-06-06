@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
+
+
 # Import library
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -281,7 +283,6 @@ floats_scaled = pd.DataFrame(scaler.fit_transform(floats), columns = floats.colu
 # Test playlist:  User's Playlist
 playlistDF_test = playlistDF.copy()
 
-
 # Save the data and generate the features
 float_cols = songDF.dtypes[songDF.dtypes == 'float64'].index.values
 
@@ -294,7 +295,6 @@ complete_feature_set_playlist_vector, complete_feature_set_nonplaylist = generat
 # Genreate top 10 recommendation
 recommend = generate_playlist_recos(songDF, complete_feature_set_playlist_vector, complete_feature_set_nonplaylist)
 print(recommend)
-
 
 
 

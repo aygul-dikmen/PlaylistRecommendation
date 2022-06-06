@@ -142,3 +142,36 @@ render() {
     </a>
   )));
 }*/
+
+
+'''
+class MakePlaylistRecommendation(APIView):
+    def get(self, request, id):
+        session_id = self.request.session.session_key
+        recommended_tracks = get_recommended_tracks(session_id, id)
+        #playlist = get_playlist_songs(session_id, id)
+
+        #total = playlist["total"]
+
+        total = len(recommended_tracks)
+        pl_songs = []
+
+        
+        for i in range(total):
+            pl_songs.append(
+                    {
+                        'name': playlist['items'][i]['track']['name'],
+                        'artist': playlist['items'][i]['track']['album']['artists'][0]['name'],
+                        'img': playlist['items'][i]['track']['album']['images'][0]['url']
+                    })
+        
+
+        for i in range(total):
+            pl_songs.append({
+                'name': recommended_tracks[i]['track_name'],
+                'id': recommended_tracks[i]['track_id'],
+                'artist': recommended_tracks[i]['artist_name']
+            })
+        
+        return Response(pl_songs, status=status.HTTP_200_OK)
+'''
