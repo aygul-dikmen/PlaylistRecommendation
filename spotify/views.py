@@ -70,12 +70,13 @@ class GetPlaylist(APIView):
         session_id = self.request.session.session_key
         response = get_playlist(session_id)
 
-        total = response["total"]
+        #print(response)
+        #total = response["total"]
         
         playlist = []
         pl_songs = []
 
-        for i in range(total):
+        for i in range(len(response['items'])):
 
             playlist_id = response['items'][i]['id']
             songs_list = get_playlist_songs(session_id,playlist_id)
@@ -90,11 +91,11 @@ class GetPlaylist(APIView):
                 )
             
             playlist.append(
-            {'name': response['items'][i]['name'],
-            'cover': response['items'][i]['images'][0]['url'],
-            'id': response['items'][i]['id'],
-            'owner': response['items'][i]['owner']['display_name'],
-            'songs': pl_songs,
+            {   'name': response['items'][i]['name'],
+                'cover': response['items'][i]['images'][0]['url'],
+                'id': response['items'][i]['id'],
+                'owner': response['items'][i]['owner']['display_name'],
+                'songs': pl_songs,
             }
             )
 
@@ -200,7 +201,7 @@ class MakePlaylistRecommendation(APIView):
         all_playlistDF = pd.DataFrame()
 
         #for playlist in range(len(all_playlist_list)):
-        for playlist in range(len(all_playlist_list)):
+        for playlist in range(2):
             temp_playlist = pd.DataFrame()
             playlist_link = all_playlist_list[playlist]
             playlist_URI = playlist_link.split("/")[-1].split("?")[0]

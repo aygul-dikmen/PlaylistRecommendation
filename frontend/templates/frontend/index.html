@@ -10,9 +10,12 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
         <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
         <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
     </head>
 
     <body>
@@ -25,6 +28,20 @@
         <div id="main">
             <div id="app"></div>
         </div>
+        
+        <footer class="ft">
+            <div class="footer-content">
+                <h3>Spotify Playlist Recommendation System</h3>
+                <p>Hi, with this website you can get similar playlists suits your music taste. We hope you enjoy it!</p>
+                <ul class="socials">
+                    <li><a href="https://github.com/aygul-dikmen/PlaylistRecommendation"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;2022 Playlist Recommendation System. designed by <span>AYGÜL DİKMEN & BÜŞRA ORAN</span> </p>
+            </div>
+        </footer>
+        
         <script src="{% static 'frontend/main.js' %}"></script>
     </body>
     
