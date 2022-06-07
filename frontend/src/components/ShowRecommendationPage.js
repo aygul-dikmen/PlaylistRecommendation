@@ -39,7 +39,7 @@ class ShowRecommendationPage extends Component {
         spacing={2}
         style={{ margins: "auto" }}
         justifyContent="center"
-        
+        md={12}
       >
         <Grid
           container
@@ -52,18 +52,18 @@ class ShowRecommendationPage extends Component {
             return (
               <Grid
                 item
-                xs={12}
+                xl={12}
                 container
-                style={{ backgroundColor: "#AEF0D7" }}
+                style={{ backgroundColor: "#88CF28" }}
                 justifyContent="center"
               >
                 <Card >
-                  <Grid item xs={12} container >
-                    <Grid item xs={4} style={{'margin':'auto'}}>
+                  <Grid item xl={12} container >
+                    <Grid item xl={4} style={{'margin':'auto'}}>
                       <img src={item.img} height="200" />
                     </Grid>
 
-                    <Grid item xs={8} justifyContent="flex-end">
+                    <Grid item xl={8} justifyContent="flex-end">
                       <br />
                       <h1>{item.name}</h1>
                       <h1>{item.artist}</h1>
@@ -77,17 +77,16 @@ class ShowRecommendationPage extends Component {
           <Grid
             item
             xs={12}
-            style={{ margin: "auto" }}
-            alignItems="center"
-            justifyContent="center"
+            style={{ "margin": "auto" , "alignItems":"center",
+            "justifyContent":"center", "paddingLeft": "450px", "backgroundColor": "#0AB775"}}
           >
             <div
               class="ui buttons"
-              style={{ alignItems: "center", justifyContent: "center" }}
+              
             >
-              <button class="ui red button">Not my cup of tea</button>
-              <div class="or"></div>
-              <button class="ui green button">Yes, keep it</button>
+              <button class="huge ui red button">Not my cup of tea</button>
+              <div class="huge or"></div>
+              <button class="huge ui yellow button">Yes, keep it</button>
             </div>
           </Grid>
         </Grid>
