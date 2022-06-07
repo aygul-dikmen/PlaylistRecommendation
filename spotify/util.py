@@ -422,3 +422,14 @@ def get_recommended_tracks(session_id,playlist_id):
     return recommended_songs
 
 
+def delete_recommended_playlist(session_id):
+    tokens = get_user_tokens(session_id)
+    spotify = spotipy.Spotify(auth=tokens.access_token)
+
+    playlists = get_playlist(session_id)
+    playlist_id = playlists['items'][0]['id']
+
+    user_id = get_current_user_id(session_id)
+
+    spotify.user_playlist_unfollow(user_id, playlist_id)
+

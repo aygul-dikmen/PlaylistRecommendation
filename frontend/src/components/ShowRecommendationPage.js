@@ -78,17 +78,17 @@ class ShowRecommendationPage extends Component {
             item
             xs={12}
             style={{ "margin": "auto" , "alignItems":"center",
-            "justifyContent":"center", "paddingLeft": "450px", "backgroundColor": "#0AB775"}}
+            "justifyContent":"center", "paddingLeft": "450px", "backgroundColor": "#88CF28"}}
           >
             <div
               class="ui buttons"
               
             >
-              <button class="huge ui red button">Not my cup of tea</button>
+              <button class="huge ui red button" onClick={() => window.location.replace('http://127.0.0.1:8000/spotify/delete-playlist','_self')}>Not my cup of tea</button>
               <div class="huge or"></div>
-              <button class="huge ui yellow button">Yes, keep it</button>
+              <button class="huge ui yellow button" onClick={() => window.open('http://127.0.0.1:8000/my-playlists', '_blank')}>Yes, keep it</button>
             </div>
-          </Grid>
+          </Grid> 
         </Grid>
       </Grid>
     );

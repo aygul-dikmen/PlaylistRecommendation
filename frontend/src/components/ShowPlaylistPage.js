@@ -35,10 +35,10 @@ export default class ShowPlaylistPage extends Component {
         <Grid container spacing={2}  >
           {this.state.playlists.map((item) => {
             return (
-              <Grid item xs={12} container style={{backgroundColor:"#AEF0D7"}} justifyContent="center">
+              <Grid item xs={12} container spacing={2} style={{backgroundColor:"#88CF28"}} justifyContent="center">
                 <Grid item xs={12} container >
                 <Grid item xs={4}>
-                    <img src={item.cover} height="200"/>
+                    <img src={item.cover} height="200" style={{borderRadius:"10px"}}/>
                   </Grid>
 
                   
@@ -50,7 +50,7 @@ export default class ShowPlaylistPage extends Component {
                   </Grid>
 
                   <Grid item xs={2} style={{'margin':'auto'}}>
-                    <a href={"/recommendation/" + item.id}><button class="ui orange button">Show my recommendation</button></a>
+                    <a href={"/recommendation/" + item.id}><button class="ui huge orange button">Show my recommendation</button></a>
                   </Grid>
         
                 </Grid>
@@ -58,7 +58,7 @@ export default class ShowPlaylistPage extends Component {
                 {item.songs?.map((items) => {
                   return (
                     
-                    <Grid xs={8} justifyContent="center"  container direction="row-reverse" style={{backgroundColor:"#FFF",padding:"30px", borderStyle:"solid"}}>
+                    <Grid xs={8} justifyContent="center"  container direction="row-reverse" style={{backgroundColor:"#FFF",padding:"30px", borderStyle:"solid", borderColor:"#88CF28", borderRadius:"10px"}}>
                       
                       
                       <Grid item xs={3} align="center" style={{paddingTop:"20px"}}>

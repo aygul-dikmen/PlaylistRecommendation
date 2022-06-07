@@ -1,19 +1,16 @@
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
-import Facebook from "@material-ui/icons/Facebook";
-import { Icon } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import GitHub from '@material-ui/icons/GitHub';
 import Email from '@material-ui/icons/Email';
-import YouTube from '@material-ui/icons/YouTube';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 
 const styles = {
   gridContainer: {
     backgroundImage:
-      "url('https://images.pexels.com/photos/3063362/pexels-photo-3063362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+      "url('https://images.pexels.com/photos/8186273/pexels-photo-8186273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
     "height": "1200px",
     "background-repeat": "no-repeat",
     "background-size": "cover",
@@ -72,21 +69,15 @@ export default class ShowPlaylistPage extends Component {
                   University. Currently I've been interested in Machine Learning.
                 </Typography>
                 <hr/>
-                <Icon style={{paddingLeft:"10px"}}>
-                  <Facebook fontSize="large"/> 
-                </Icon>
-                <Icon>
+                <IconButton onClick={() => window.open('https://github.com/aygul-dikmen', '_blank')}>
                   <GitHub fontSize="large"/>
-                </Icon>
-                <Icon>
+                </IconButton>
+                <a href="mailto:ayguldikmen@gmail.com" target="_top"><IconButton >
                   <Email fontSize="large"/>
-                </Icon>
-                <Icon>
-                  <YouTube fontSize="large"/>
-                </Icon>
-                <Icon>
+                </IconButton></a>
+                <IconButton onClick={() => window.open('https://www.linkedin.com/in/aygul-dikmen-b5b42b172/', '_blank')}>
                   <LinkedIn fontSize="large"/>
-                </Icon>
+                </IconButton>
               </Grid>
             </Grid>
           </Card>
@@ -115,21 +106,16 @@ export default class ShowPlaylistPage extends Component {
                   University. Currently I've been interested in Web development.
                 </Typography>
                 <hr/>
-                <Icon style={{paddingLeft:"10px"}}>
-                  <Facebook fontSize="large"/> 
-                </Icon>
-                <Icon>
+                <IconButton onClick={() => window.open('https://github.com/busraaaoran', '_blank')}>
                   <GitHub fontSize="large"/>
-                </Icon>
-                <Icon>
+                </IconButton>
+                <a href="mailto:busraoran043@gmail.com" target="_top"><IconButton >
                   <Email fontSize="large"/>
-                </Icon>
-                <Icon>
-                  <YouTube fontSize="large"/>
-                </Icon>
-                <Icon>
+                </IconButton></a>
+                
+                <IconButton onClick={() => window.open('https://www.linkedin.com/in/busraoran/', '_blank')}>
                   <LinkedIn fontSize="large"/>
-                </Icon>
+                </IconButton>
               </Grid>
             </Grid>
           </Card>
@@ -139,29 +125,3 @@ export default class ShowPlaylistPage extends Component {
   }
 }
 
-/*<Paper elevation={3} style={{display:'flex', justifyContent:'center', backgroundColor:"#AEF0D7"}}>
-        <Grid container spacing={2} xs={12} alignItems="center"  style={{display:'flex', justifyContent:'center', backgroundColor:"#AEF0D7"}}>
-        <Grid item style={{
-              alignItems: "center",
-              justifyContent: "center",
-             
-            }}>
-          <Card
-            style={{
-              height: "400px",
-              width: "800px",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Büşra
-          </Card>
-        </Grid>
-        <Grid item style={{
-              alignItems: "center",
-              justifyContent: "center",
-            }}>
-          <Card style={{ height: "400px", width: "800px" }}>Aygül</Card>
-        </Grid>
-        </Grid>
-      </Paper>*/

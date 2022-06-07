@@ -6,7 +6,7 @@ from requests import Request, Response, post, session
 from rest_framework import status
 from rest_framework.response import Response
 from  .util import *
-from django.views import View
+from django.views import *
 from django.urls import reverse
 # Create your views here.
 
@@ -440,4 +440,9 @@ class MakePlaylistRecommendation(APIView):
  
         return Response(new_pl_songs, status=status.HTTP_200_OK)
 
+def DeletePlaylistView(request):
+    session_id = request.session.session_key
 
+    delete_recommended_playlist(session_id)   
+
+    return redirect('frontend:my-playlists') 

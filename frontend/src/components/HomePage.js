@@ -22,7 +22,7 @@ import Image from '../../static/images/bg.jpg';
 
 const styles = {
   gridContainer: {
-      backgroundImage: "url('https://images.unsplash.com/photo-1622867500182-5670d5a2c8e2?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774')",
+      backgroundImage: "url('https://images.pexels.com/photos/213207/pexels-photo-213207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
       "height": "1000px",
       'background-repeat': 'no-repeat',
       'background-size': 'cover',
@@ -59,9 +59,11 @@ export default class HomePage extends Component {
     return (
       <Grid container spacing={4} style={styles.gridContainer} >
         <Grid item xs={12} align="center" style={{'margin-top': "250px"}}>
-          <Typography component="h4" variant="h4" style={{color:"#FFFFFF", "margin-bottom": "50px"}}>
+          <Typography component="h4" variant="h3" style={{color:"#17682C", "margin-bottom": "50px"}}>
             SPOTIFY PLAYLIST RECOMMENDATION SYSTEM
+            <Typography component="h3" variant="h5" style={{"margin-left":"150px", "margin-right": "150px", "margin-top":"30px", "color":"#17682C"}}>Wanna get some recommendations according to your music taste? If your answer is yes then this website will suit you perfectly. Just login and see what it'll recommend for you!</Typography>
           </Typography>
+
           <Button
             style={{
               backgroundColor: "#17682C",
