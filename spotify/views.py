@@ -201,7 +201,7 @@ class MakePlaylistRecommendation(APIView):
         all_playlistDF = pd.DataFrame()
 
         #for playlist in range(len(all_playlist_list)):
-        for playlist in range(2):
+        for playlist in range(len(all_playlist_list)):
             temp_playlist = pd.DataFrame()
             playlist_link = all_playlist_list[playlist]
             playlist_URI = playlist_link.split("/")[-1].split("?")[0]

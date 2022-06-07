@@ -66,7 +66,7 @@ export default class ShowPlaylistPage extends Component {
                 <hr/>
                 <Typography align="center">
                   Hey, I am a senior student in Computer Engineering at Çukurova
-                  University. Currently I've been interested in Machine Learning.
+                  University. Recently I've been interested in Machine Learning and Data Science.
                 </Typography>
                 <hr/>
                 <IconButton onClick={() => window.open('https://github.com/aygul-dikmen', '_blank')}>
@@ -103,7 +103,7 @@ export default class ShowPlaylistPage extends Component {
                 <hr/>
                 <Typography align="center">
                   Hey, I am a senior student in Computer Engineering at Çukurova
-                  University. Currently I've been interested in Web development.
+                  University. Recently I've been interested in Web development.
                 </Typography>
                 <hr/>
                 <IconButton onClick={() => window.open('https://github.com/busraaaoran', '_blank')}>

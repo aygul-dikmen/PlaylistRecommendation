@@ -37,14 +37,13 @@ class ShowRecommendationPage extends Component {
       <Grid
         container
         spacing={2}
-        style={{ margins: "auto" }}
         justifyContent="center"
         md={12}
       >
         <Grid
           container
           spacing={2}
-          style={{ margins: "auto" }}
+          
           justifyContent="center"
           
         >
@@ -57,13 +56,13 @@ class ShowRecommendationPage extends Component {
                 style={{ backgroundColor: "#88CF28" }}
                 justifyContent="center"
               >
-                <Card >
-                  <Grid item xl={12} container >
-                    <Grid item xl={4} style={{'margin':'auto'}}>
+                <Card style={{"width":"600px"}}>
+                  <Grid item xl={12} container spacing={2}>
+                    <Grid item xl={4} style={{'float':'left'}}>
                       <img src={item.img} height="200" />
                     </Grid>
 
-                    <Grid item xl={8} justifyContent="flex-end">
+                    <Grid item xl={8} style={{'justifyContent':'center'}}>
                       <br />
                       <h1>{item.name}</h1>
                       <h1>{item.artist}</h1>
@@ -78,7 +77,7 @@ class ShowRecommendationPage extends Component {
             item
             xs={12}
             style={{ "margin": "auto" , "alignItems":"center",
-            "justifyContent":"center", "paddingLeft": "450px", "backgroundColor": "#88CF28"}}
+            "justifyContent":"center", "paddingLeft": "500px", "backgroundColor": "#88CF28"}}
           >
             <div
               class="ui buttons"
@@ -86,7 +85,7 @@ class ShowRecommendationPage extends Component {
             >
               <button class="huge ui red button" onClick={() => window.location.replace('http://127.0.0.1:8000/spotify/delete-playlist','_self')}>Not my cup of tea</button>
               <div class="huge or"></div>
-              <button class="huge ui yellow button" onClick={() => window.open('http://127.0.0.1:8000/my-playlists', '_blank')}>Yes, keep it</button>
+              <button class="huge ui yellow button" onClick={() => window.open('http://127.0.0.1:8000/my-playlists', '_self')}>Yes, keep it</button>
             </div>
           </Grid> 
         </Grid>
