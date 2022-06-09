@@ -36,7 +36,6 @@ export default class HomePage extends Component {
       spotifyAuthenticated: false,
     };
     this.authenticateSpotify = this.authenticateSpotify.bind(this);
-    //this.authenticateSpotify();
   }
 
   authenticateSpotify() {
