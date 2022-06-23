@@ -186,6 +186,7 @@ class MakePlaylistRecommendation(APIView):
                                                   'tempo': float})
 
             return playlistDF
+        '''
 
         all_playlist_list = ["https://open.spotify.com/playlist/37i9dQZEVXbNG2KDcFcKOF?si=253f12a3e38c4aa1", "https://open.spotify.com/playlist/37i9dQZEVXbJARRcHjHcAr?si=3116bd59ece7457d",
                              "https://open.spotify.com/playlist/37i9dQZF1DX2iRL6tJD46O?si=e1634761eed1487c", "spotify:playlist:37i9dQZF1DX3iWJN79KKoY", "spotify:playlist:37i9dQZF1DXc8YFRm3hen8",
@@ -204,6 +205,21 @@ class MakePlaylistRecommendation(APIView):
             temp_playlist = extract_data(temp_playlist, playlist_URI)
 
             all_playlistDF = all_playlistDF.append(temp_playlist)
+        '''
+
+        path = 'allData.csv'
+        data = pd.read_csv(path)
+        all_playlistDF = pd.DataFrame(data)
+        
+        for item in range(len(all_playlistDF)):
+            temp = all_playlistDF.genres[item]
+            temp = temp.replace('"','')
+            temp = temp.replace("[",'')
+            temp = temp.replace("]",'')
+            temp = temp.replace("'",'')
+            temp = temp.split(',')
+            all_playlistDF.genres[item] = temp
+
 
         user_playlistDF = pd.DataFrame()
 
